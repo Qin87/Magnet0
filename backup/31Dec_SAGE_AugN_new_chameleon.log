@@ -1,0 +1,46 @@
+Namespace(withAug=False, AugDirect=20, method_name='SAGE', GPUdevice=0, IsDirectedData=True, dataset='WikipediaNetwork/chameleon', undirect_dataset='Amazon-Computers', MakeImbalance=True, CustomizeMask=False, seed=100, K=2, heads=8, log_root='../logs/', log_path='test', data_path='../dataset/data/tmp/', epochs=1500, num_filter=2, p_q=0.95, p_inter=0.1, dropout=0.0, debug=False, new_setting=False, layer=2, lr=0.005, l2=0.0005, to_undirected=False, alpha=0.1, randomseed=-1, imb_ratio=100, n_layer=2, feat_dim=64, warmup=5, epoch=900, tau=2, max=False, no_mask=False, gdc='ppr')
+CUDA Device Index: 0
+12-31-15:29:29
+excel_file_path is  FalseAug_SAGE_WikipediaNetworkchameleon12-31-15:29:29_dir.xlsx
+dataset is  WikipediaNetwork chameleon
+Dataset is  WikipediaNetwork() 
+Chosen from DirectedData:  True
+Num of bidrected edges: 4680, total num of edges: 36101
+This is directed graph:  True
+data_x torch.Size([2277, 2325])
+splits 10
+GraphSAGE2(
+  (conv1): SAGEConv(2325, 64)
+  (conv2): SAGEConv(64, 5)
+)
+Beginning for split:  0 31-15:30:08
+Early stop at epoch:  510
+split:   0, val_loss:   7.75, test_Acc:  28.29, test_bacc:  27.12, test_f1:  19.63
+Beginning for split:  1 31-15:32:32
+Early stop at epoch:  509
+split:   1, val_loss:   7.46, test_Acc:  28.51, test_bacc:  27.21, test_f1:  20.63
+Beginning for split:  2 31-15:37:21
+Early stop at epoch:  515
+split:   2, val_loss:   6.03, test_Acc:  38.60, test_bacc:  36.12, test_f1:  29.72
+Beginning for split:  3 31-15:44:01
+Early stop at epoch:  506
+split:   3, val_loss:   9.39, test_Acc:  40.13, test_bacc:  38.41, test_f1:  30.94
+Beginning for split:  4 31-15:52:35
+Early stop at epoch:  507
+split:   4, val_loss:   8.31, test_Acc:  34.65, test_bacc:  33.40, test_f1:  24.30
+Beginning for split:  5 31-16:03:35
+Early stop at epoch:  526
+split:   5, val_loss:   8.56, test_Acc:  40.57, test_bacc:  35.20, test_f1:  30.32
+Beginning for split:  6 31-16:17:08
+Early stop at epoch:  503
+split:   6, val_loss:   6.46, test_Acc:  29.82, test_bacc:  29.07, test_f1:  22.51
+Beginning for split:  7 31-16:31:42
+Early stop at epoch:  513
+split:   7, val_loss:   8.55, test_Acc:  28.51, test_bacc:  28.02, test_f1:  21.40
+Beginning for split:  8 31-16:49:53
+Early stop at epoch:  506
+split:   8, val_loss:  10.21, test_Acc:  29.61, test_bacc:  26.48, test_f1:  20.07
+Beginning for split:  9 31-17:09:12
+Early stop at epoch:  520
+split:   9, val_loss:   6.86, test_Acc:  29.17, test_bacc:  28.25, test_f1:  22.88
+Total time(all splits):  7241.605428695679

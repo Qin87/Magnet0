@@ -1,6 +1,8 @@
-*.log
-*.xlsx
+#*.log
+#*.xlsx
 
 # Ignore directories that begin with "log"
-log*/
-/.gitignore
+#log*/
+#/.gitignore
+dataset/*
+src/dataset/*

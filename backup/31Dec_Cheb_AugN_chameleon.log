@@ -1,0 +1,56 @@
+Namespace(withAug=False, AugDirect=20, method_name='Cheb', GPUdevice=1, IsDirectedData=True, dataset='WikipediaNetwork/chameleon', undirect_dataset='Amazon-Computers', MakeImbalance=True, CustomizeMask=False, seed=100, K=2, heads=8, log_root='../logs/', log_path='test', data_path='../dataset/data/tmp/', epochs=1500, num_filter=2, p_q=0.95, p_inter=0.1, dropout=0.0, debug=False, new_setting=False, layer=2, lr=0.005, l2=0.0005, to_undirected=False, alpha=0.1, randomseed=-1, imb_ratio=100, n_layer=2, feat_dim=64, warmup=5, epoch=900, tau=2, max=False, no_mask=False, gdc='ppr')
+CUDA Device Index: 1
+12-31-14:26:38
+excel_file_path is  FalseAug_Cheb_WikipediaNetworkchameleon12-31-14:26:38_dir.xlsx
+dataset is  WikipediaNetwork chameleon
+Dataset is  WikipediaNetwork() 
+Chosen from DirectedData:  True
+Num of bidrected edges: 4680, total num of edges: 36101
+This is directed graph:  True
+data_x torch.Size([2277, 2325])
+splits 10
+ChebModelBen(
+  (conv1): ChebConv(2325, 2, K=2, normalization=sym)
+  (conv2): ChebConv(2, 2, K=2, normalization=sym)
+  (Conv): Conv1d(2, 5, kernel_size=(1,), stride=(1,))
+)
+Beginning for split:  0 31-14:27:05
+Early stop at epoch:  515
+split:   0, val_loss:   2.55, test_Acc:  35.53, test_bacc:  34.73, test_f1:  20.29
+Beginning for split:  1 31-14:29:04
+Early stop at epoch:  501
+split:   1, val_loss:   7.06, test_Acc:  37.94, test_bacc:  36.62, test_f1:  21.49
+Beginning for split:  2 31-14:32:12
+Early stop at epoch:  517
+split:   2, val_loss:   5.20, test_Acc:  31.58, test_bacc:  29.55, test_f1:  20.27
+Beginning for split:  3 31-14:36:44
+Early stop at epoch:  503
+split:   3, val_loss:   6.12, test_Acc:  35.31, test_bacc:  33.35, test_f1:  24.16
+Beginning for split:  4 31-14:44:13
+Early stop at epoch:  509
+split:   4, val_loss:   5.16, test_Acc:  36.62, test_bacc:  31.89, test_f1:  23.99
+Beginning for split:  5 31-14:53:49
+Early stop at epoch:  516
+split:   5, val_loss:  10.49, test_Acc:  29.61, test_bacc:  25.11, test_f1:  20.52
+Beginning for split:  6 31-15:05:35
+Early stop at epoch:  505
+split:   6, val_loss:   8.93, test_Acc:  25.44, test_bacc:  24.68, test_f1:  17.09
+Beginning for split:  7 31-15:18:43
+Traceback (most recent call last):
+  File "/home/qj2004/magnet/src/GNNChangeTrainTest.py", line 648, in <module>
+    main(args)
+  File "/home/qj2004/magnet/src/GNNChangeTrainTest.py", line 440, in main
+    out = model(data_x, edges)
+  File "/home/qj2004/.conda/envs/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/qj2004/magnet/src/layer/geometric_baselines.py", line 500, in forward
+    x = self.conv1(x, edge_index)
+  File "/home/qj2004/.conda/envs/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/qj2004/.conda/envs/myenv/lib/python3.10/site-packages/torch_geometric/nn/conv/cheb_conv.py", line 167, in forward
+    Tx_1 = self.propagate(edge_index, x=x, norm=norm, size=None)
+  File "/home/qj2004/.conda/envs/myenv/lib/python3.10/site-packages/torch_geometric/nn/conv/message_passing.py", line 463, in propagate
+    out = self.message(**msg_kwargs)
+  File "/home/qj2004/.conda/envs/myenv/lib/python3.10/site-packages/torch_geometric/nn/conv/cheb_conv.py", line 182, in message
+    return norm.view(-1, 1) * x_j
+RuntimeError: CUDA out of memory. Tried to allocate 340.00 MiB (GPU 1; 23.69 GiB total capacity; 403.62 MiB already allocated; 319.12 MiB free; 412.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

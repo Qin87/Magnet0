@@ -1,0 +1,17 @@
+Namespace(withAug=False, AugDirect=20, method_name='Cheb', GPUdevice=0, IsDirectedData=False, dataset='WebKB/Cornell', undirect_dataset='Amazon-Photo', MakeImbalance=True, CustomizeMask=False, seed=100, K=2, heads=8, log_root='../logs/', log_path='test', data_path='../dataset/data/tmp/', epochs=1500, num_filter=2, p_q=0.95, p_inter=0.1, dropout=0.0, debug=False, new_setting=False, layer=2, lr=0.005, l2=0.0005, to_undirected=False, alpha=0.1, randomseed=-1, imb_ratio=100, n_layer=2, feat_dim=64, warmup=5, epoch=900, tau=2, max=False, no_mask=False, gdc='ppr')
+CUDA Device Index: 0
+01-04-09:35:21
+excel_file_path is  FalseAug_Cheb_Amazon-Photo01-04-09:35:21_undir.xlsx
+Dataset is  AmazonPhoto() 
+Chosen from DirectedData:  False
+Num of bidrected edges: 119081, total num of edges: 238162
+This is directed graph:  False
+data_x torch.Size([7650, 745])
+Traceback (most recent call last):
+  File "/home/qj2004/Ben/magnet/src/GNNChangeTrainTest.py", line 649, in <module>
+    main(args)
+  File "/home/qj2004/Ben/magnet/src/GNNChangeTrainTest.py", line 167, in main
+    edge_index1, edge_weights1 = get_appr_directed_adj(args.alpha, edges.long(), data_y.size(-1), data_x.dtype)
+  File "/home/qj2004/Ben/magnet/src/utils/edge_data.py", line 386, in get_appr_directed_adj
+    L = (torch.mm(torch.mm(pi_sqrt, p_ppr), pi_inv_sqrt) + torch.mm(torch.mm(pi_inv_sqrt, p_ppr.t()), pi_sqrt)) / 2.0
+RuntimeError: CUDA error: CUBLAS_STATUS_ALLOC_FAILED when calling `cublasCreate(handle)`
