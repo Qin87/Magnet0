@@ -38,15 +38,15 @@ from utils.edge_data import get_appr_directed_adj, get_second_directed_adj
 
 def main(args):
     # ********************* write to excel
-    date_time = datetime.now().strftime('%m-%d-%H:%M:%S')
+    date_time = datetime.now().strftime('%m-%d-%H:%M')
+    # date_time = datetime.now().strftime('%m-%d-%H:%M:%S')
     print(date_time)
     if args.IsDirectedData:
-        excel_file_path = str(args.withAug) + 'Aug_' + date_time + '_'+ args.method_name + '_' + args.dataset.split('/')[
+        excel_file_path = str(args.withAug) +str(args.AugDirect) +'Aug_' + date_time + '_'+ args.method_name + '_' + args.dataset.split('/')[
             0]+args.dataset.split('/')[
             1]  +'_dir.xlsx'
     else:
-        excel_file_path = str(
-            args.withAug) + 'Aug_' + args.method_name + '_' + args.undirect_dataset + date_time + '_undir.xlsx'
+        excel_file_path = str(args.withAug) + str(args.AugDirect)+'Aug_' + args.method_name + '_' + args.undirect_dataset + date_time + '_undir.xlsx'
     print("excel_file_path is ", excel_file_path)
 
     writerBen = pd.ExcelWriter(excel_file_path, engine='openpyxl')    # a new excel file
@@ -222,9 +222,8 @@ def main(args):
         pass
     model.to(device)
 
-
     for split in range(splits):
-        # if split <1 or split >5:
+        # if split >4:
         #     continue
         print("Beginning for split: ", split, datetime.now().strftime('%d-%H:%M:%S'))
         if splits == 1:
@@ -285,7 +284,7 @@ def main(args):
         existing_data2 = pd.DataFrame()
         CountNotImproved = 0
         for epoch in range(args.epochs):
-            if CountNotImproved > 100:
+            if CountNotImproved > 50:
                 opt = torch.optim.Adam(model.parameters(), lr=10 * args.lr, weight_decay=args.l2)  # less accuracy*
             else:
                 opt = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.l2)  # less accuracy

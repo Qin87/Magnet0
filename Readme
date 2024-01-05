@@ -24,7 +24,10 @@ WebKB/Cornell, 'WebKB/texas', 'WebKB/wisconsin'         ---tested OK
 Tested Undirected Dataset options:
 CiteSeer
 Cora
-PUbMed: too large so only can run in GPU3090
+
+Too large to run experiments:
+PUbMed: too large so only can run in GPU3090, even SymDiGCN is too large for GPU3090
+Amazon_computers: 10 days to run one experiment
 
 
 tested GNNs:
@@ -33,4 +36,5 @@ SAGE, GCN, GAT,
 APPNP,
 Cheb
 DiG
+SymDiGCN
 

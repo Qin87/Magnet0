@@ -2,7 +2,16 @@
 #*.xlsx
 
 # Ignore directories that begin with "log"
+<<<<<<< HEAD
 #log*/
 #/.gitignore
 dataset/*
 src/dataset/*
+=======
+log*/
+#/.gitignore
+
+dataset/*
+src/dataset/*
+
+>>>>>>> a044afd1802e0a9c73326c64248620a2cbc5345d
